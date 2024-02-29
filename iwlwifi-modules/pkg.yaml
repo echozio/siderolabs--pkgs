@@ -1,0 +1,56 @@
+name: iwlwifi-modules-pkg
+variant: scratch
+shell: /toolchain/bin/bash
+dependencies:
+  - image: '{{ .TOOLS_IMAGE }}'
+steps:
+  - sources:
+      - url: https://cdn.kernel.org/pub/linux/kernel/v{{ regexReplaceAll ".\\d+\\.\\d+$" .linux_version "${1}" }}.x/linux-{{ .linux_version }}.tar.xz
+        destination: linux.tar.xz
+        sha256: "{{ .linux_sha256 }}"
+        sha512: "{{ .linux_sha512 }}"
+    prepare:
+      - |
+        tar -xJf linux.tar.xz --strip-components=1
+        rm linux.tar.xz
+      - |
+        mkdir /bin
+        ln -sv /toolchain/bin/bash /bin/bash
+        ln -sv /toolchain/bin/bash /bin/sh
+        ln -sv /toolchain/lib /lib
+        mkdir -p /usr/bin \
+            && ln -sf /toolchain/bin/env /usr/bin/env \
+            && ln -sf /toolchain/bin/true /bin/true \
+            && ln -sf /toolchain/bin/false /bin/false \
+            && ln -sf /toolchain/bin/pwd /bin/pwd
+        ln -s /toolchain/bin/awk /usr/bin/awk
+
+        mkdir -p /usr/lib/pkgconfig
+        ln -s /toolchain/include /usr/include
+
+        for lib in ncurses form panel menu ; do
+            rm -vf                    /lib/lib${lib}.so
+            echo "INPUT(-l${lib}w)" > /lib/lib${lib}.so
+            ln -sfv ${lib}w.pc        /lib/pkgconfig/${lib}.pc
+        done
+    build:
+      - |
+        make defconfig
+        cat >>.config <<EOF
+        CONFIG_LOCALVERSION="-talos"
+        CONFIG_IWLWIFI=m
+        CONFIG_IWLWIFI_LEDS=y
+        CONFIG_IWLDVM=m
+        CONFIG_IWLMVM=m
+        CONFIG_IWLWIFI_OPMODE_MODULAR=y
+        EOF
+        make -j $(nproc)
+    install:
+      - |
+        export KERNELRELEASE="$(cat include/config/kernel.release)"
+        mkdir -p /rootfs
+        make -j $(nproc) modules_install DEPMOD=/toolchain/bin/depmod INSTALL_MOD_PATH=/rootfs INSTALL_MOD_STRIP=1
+        depmod -b /rootfs "$KERNELRELEASE"
+finalize:
+  - from: /rootfs
+    to: /

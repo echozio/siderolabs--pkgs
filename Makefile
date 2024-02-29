@@ -83,6 +83,7 @@ TARGETS += xfsprogs
 TARGETS += kernel
 TARGETS += gasket-driver-pkg
 TARGETS += nvidia-open-gpu-kernel-modules-pkg
+TARGETS += iwlwifi-modules-pkg
 NONFREE_TARGETS = nonfree-kmod-nvidia-pkg
 
 # help menu
