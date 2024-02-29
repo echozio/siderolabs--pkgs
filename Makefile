@@ -85,6 +85,7 @@ TARGETS += drbd-pkg
 TARGETS += gasket-driver-pkg
 TARGETS += nvidia-open-gpu-kernel-modules-pkg
 TARGETS += zfs-pkg
+TARGETS += iwlwifi-modules-pkg
 NONFREE_TARGETS = nonfree-kmod-nvidia-pkg
 
 # help menu
