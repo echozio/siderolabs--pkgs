@@ -93,7 +93,7 @@ vars:
   libjson_c_sha512: 4cbedd559502bf9014cfcd1d0bb8bb80d2abac4e969d95d4170123cd9cbafb0756b913fdbb83f666d14f674d6539a60ed1c5d0eb03c36b8037a2e00dc1636e19
 
   # renovate: datasource=github-releases depName=tukaani-project/xz
-  xz_version: v5.4.6
+  xz_version: v5.6.0
   xz_sha256: b92d4e3a438affcf13362a1305cd9d94ed47ddda22e456a42791e630a5644f5c
   xz_sha512: 495cc890d25c075c927c907b77e60d86dd8a4c377cea5b1172c8e916984149a7bb5fb32db25091f7219346b83155b47e4bc0404cc8529d992014cd7ed0c278b7
 
@@ -113,7 +113,7 @@ vars:
   liburcu_sha512: 7297e51012f4c44ee27c0e18ed9d87bf24be34db68a5398394c1e683a045bb561cf74aa913398404c0ed5cb8011af728ea12947717fa5f27627e5ca78e63a40f
 
   # renovate: datasource=git-tags depName=git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-  linux_firmware_version: 20240115
+  linux_firmware_version: 20240220
   linux_firmware_sha256: 86c2799516c9dc24e73214bd58ccd8297356186e97c5458baf4eb7cc8dbfea0a
   linux_firmware_sha512: 0a57cc19b8a98a399857008520a89c46f93a64c3ea20f53ecb84a49c2c127d408ffbc641a81eb440545d4dcfd38175006aa0404e0dddd80e4bace4cc118f5fcd
 
@@ -132,7 +132,7 @@ vars:
   musl_sha512: 498ec5d7941194a8806f4d42f0f6d218c862996ef1398b737d0d06995e0b7a6574b240a48088f6b84016b14b2776fe463f829dcb11149cdfc1023d496b235c55
 
   # renovate: datasource=github-releases depName=nvidia/open-gpu-kernel-modules
-  nvidia_driver_version: 535.129.03
+  nvidia_driver_version: 535.161.07
   nvidia_driver_sha256: 170ee91b6cd6c801bba0de91e0d62af8e574adde38120bc762784755b5a9821d
   nvidia_driver_sha512: c8104103f34365b7a20dcebb64e1eb2e64a7b056b44329fa305f81e267759f2b1bb1c09923e617d4f5f4af3be01c3b8e2e6d739f03d4d0f129b31331fec3a4d8
 
@@ -142,7 +142,7 @@ vars:
   openssl_sha512: bab2b2419319f1feffaba4692f03edbf13b44d1090c6e075a2d69dad67a2d51e64e6edbf83456a26c83900a726d20d2c4ee4ead9c94b322fd0b536f3b5a863c4
 
   # renovate: datasource=git-refs versioning=git depName=https://github.com/raspberrypi/firmware.git
-  raspberrypi_firmware_ref: 5f795d147fb21ecb0cf2e6d42929130b6b049de0
+  raspberrypi_firmware_ref: 411d93e5046ce017928ad4b06a8894900d254959
   raspberrypi_firmware_sha256: c64a119620cf367ae4ff124961dd5783f71aa005999a2b9213a7730207806874
   raspberrypi_firmware_sha512: 34e8f032dde782f7fa8344e3d39db3e681b62450102c8775d4e0f1c3b072df98133bedeac52b8a95cec0f5dc4f62b3ea4fae66e26834bd9ce2023a59bf137cc0
 
@@ -173,7 +173,7 @@ vars:
   arm_trusted_firmware_sha512: 958cf8f9e258638e59d0fbd8b053fce7d8a9ea2fc922686c9d20ea16f79f55219ac18a12ab240c528ee98e49c2e0eef4c963fdb255cc14b92437a5b3cffc8640
 
   # renovate: datasource=github-tags extractVersion=^v(?<version>.*)$ depName=u-boot/u-boot
-  uboot_version: 2023.01
+  uboot_version: 2023.10
   uboot_sha256: 69423bad380f89a0916636e89e6dcbd2e4512d584308d922d1039d1e4331950f
   uboot_sha512: 417a28267eb7875820d08fafc7316f164663609378637539e71648b0b9b7d28796b6c381717f31b0ab6472805fefd32628ef7d1b2e7b9f3c51c8ad122993f679
 
